@@ -145,12 +145,12 @@ const RowModal = () => {
   const sensors = useSensors(
     useSensor(MouseSensor, {
       activationConstraint: {
-        distance: 1,
+        distance: 8,
       },
     }),
     useSensor(TouchSensor, {
       activationConstraint: {
-        distance: 1,
+        distance: 8,
       },
     }),
     useSensor(KeyboardSensor, {
@@ -158,7 +158,7 @@ const RowModal = () => {
     }),
     useSensor(PointerSensor, {
       activationConstraint: {
-        distance: 1,
+        distance: 8,
       },
     })
   )

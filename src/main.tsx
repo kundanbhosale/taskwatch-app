@@ -7,10 +7,10 @@ import * as Sentry from '@sentry/react'
 import ReactGA from 'react-ga'
 import { ViewportProvider } from '@contexts/viewport'
 
-const TRACKING_ID = import.meta.env.VITE_GA_MESUREMENT_ID // OUR_TRACKING_ID
+const TRACKING_ID = import.meta.env.VITE_GA_MESUREMENT_ID || 'G-038PZRTCKQ' // OUR_TRACKING_ID
 ReactGA.initialize(TRACKING_ID)
 ReactGA.pageview(window.location.pathname)
-
+console.log(TRACKING_ID)
 Sentry.init({
   dsn: import.meta.env.VITE_SENTRY_DSN,
   integrations: [new Sentry.BrowserTracing(), new Sentry.Replay()],

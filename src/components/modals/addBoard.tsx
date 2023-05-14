@@ -36,7 +36,6 @@ const AddBoard: React.FC<IProps> = ({ modalState, setModalState, onSave }) => {
   })
 
   const { handleSubmit, reset } = methods
-  console.log(modalState)
   const onSubmit = async (data: AddBoardForm) => {
     try {
       if (!modalState) return

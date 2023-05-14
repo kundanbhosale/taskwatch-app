@@ -133,6 +133,7 @@ export const PrimaryCol = (props: ListProps) => {
       transition, // Transition property for drag and drop
       backgroundColor: isDragging ? Theme.shades.primary[300] : undefined, // Background color for dragging state
       opacity: isDragging ? 0.5 : undefined, // Opacity for dragging state
+      touchAction: 'none',
     }),
     [isDragging, transform, transition]
   )
@@ -198,6 +199,7 @@ const SubColumn = (
       transition, // Transition property for drag and drop
       backgroundColor: isDragging ? Theme.shades.primary[300] : undefined, // Background color for dragging state
       opacity: isDragging ? 0.5 : undefined, // Opacity for dragging state
+      touchAction: 'none',
     }),
     [isDragging, transform, transition]
   )

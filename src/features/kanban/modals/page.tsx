@@ -13,7 +13,6 @@ const Taskpage = ({ taskData }: { taskData: TaskItem | undefined }) => {
   }
 
   const handleSave = async (output: OutputData) => {
-    console.log(output)
     if (!taskData?.id || !initial) return
     await updatePage(
       initial !== 'new'

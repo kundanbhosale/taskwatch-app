@@ -2,7 +2,6 @@ import configuration from './../configuration'
 import styled from 'styled-components'
 
 const Navbar = () => {
-  console.log(import.meta.env.VITE_SITE_URL)
   return (
     <Wrapper>
       <a href={import.meta.env.VITE_SITE_URL} className={`logo`}>

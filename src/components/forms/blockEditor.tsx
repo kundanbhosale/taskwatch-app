@@ -126,6 +126,13 @@ export default BlockEditor
 
 const Wrapper = styled.div`
   padding: 1em;
+  * {
+    -webkit-touch-callout: none; /* Safari */
+    -webkit-user-select: none; /* Chrome */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+  }
   input {
     height: fit-content;
     border: none;

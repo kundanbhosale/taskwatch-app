@@ -89,7 +89,7 @@ const Wrapper = styled.div`
   border-radius: 4px;
   box-shadow: 3px 3px 5px 0px ${({ theme }) => theme.shades.dark[100]};
   border: 1px solid ${({ theme }) => theme.shades.dark[100]};
-  touch-action: manipulation;
+  touch-action: none;
   overflow: hidden;
 
   .card {

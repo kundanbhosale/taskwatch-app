@@ -165,7 +165,7 @@ class SimpleImage implements BlockTool {
 
     image.onerror = (e) => {
       // @todo use api.Notifies.show() to show error notification
-      console.log('Failed to load an image', e)
+      console.error('Failed to load an image', e)
     }
 
     if (this.data.url) {
