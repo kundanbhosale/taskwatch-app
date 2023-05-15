@@ -19,7 +19,7 @@ type Props = React.DetailedHTMLProps<
   error?: string
 }
 
-const placeCaretAtEnd = (el: HTMLElement) => {
+const placeCaretAtEnd = (el: HTMLDivElement) => {
   if (
     typeof window.getSelection === 'undefined' &&
     typeof document.createRange === 'undefined'
@@ -101,6 +101,7 @@ export const CustomFormInput = (
 
   const handleBlur = (e: FormEvent<HTMLDivElement>) => {
     saveOnBlur && onChange(e.currentTarget.textContent || 'Untitled')
+    placeCaretAtEnd(e)
     onBlur()
   }
 

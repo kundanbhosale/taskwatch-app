@@ -3,6 +3,15 @@ import react from '@vitejs/plugin-react-swc'
 import eslint from 'vite-plugin-eslint'
 import path from 'path'
 import { VitePWA } from 'vite-plugin-pwa'
+import { writeFileSync } from 'fs'
+
+const sitemapGen = () => {
+  return `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url><loc>https://app.taskwatch.io</loc><lastmod>${new Date().toISOString()}</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  </urlset>`
+}
+
 // https://vitejs.dev/config/
 // eslint-disable-next-line import/no-unused-modules
 export default defineConfig({
@@ -125,18 +134,12 @@ export default defineConfig({
       apply: 'serve',
       enforce: 'post',
     },
+    {
+      name: 'postbuild-commands', // the name of your custom plugin. Could be anything.
+      closeBundle: async () => {
+        writeFileSync('public/sitemap.xml', sitemapGen())
+        console.log('Sitemap generated...')
+      },
+    },
   ],
 })
-
-// "baseUrl": ".",
-// "paths": {
-//   "@components/*": ["src/components/*"],
-//   "@db/*": ["src/db/*"],
-//   "@pages/*": ["src/pages/*"],
-//   "@utils/*": ["src/utils/*"],
-//   "@svgs/*": ["src/svgs/*"],
-//   "@styled/*": ["src/styled/*"],
-//   "@typings/*": ["src/typings/*"],
-//   "@contexts/*": ["src/contexts/*"],
-//   "@hooks/*": ["src/hooks/*"]
-// }

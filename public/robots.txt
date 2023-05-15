@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /
+Allow: /$
+
+# Host
+Host: https://app.taskwatch.io
+
+# Sitemaps
+Sitemap: https://app.taskwatch.io/sitemap.xml
