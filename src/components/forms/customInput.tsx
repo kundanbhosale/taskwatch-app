@@ -100,7 +100,7 @@ export const CustomFormInput = (
   }, 300)
 
   const handleBlur = (e: FormEvent<HTMLDivElement>) => {
-    saveOnBlur && onChange(e.currentTarget.textContent || 'Untitled')
+    saveOnBlur && onChange(e.currentTarget.textContent || '')
     placeCaretAtEnd(e.currentTarget)
     onBlur()
   }
