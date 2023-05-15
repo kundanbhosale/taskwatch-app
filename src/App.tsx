@@ -77,6 +77,10 @@ const App = () => {
           property="twitter:creator"
           content={configuration.site.twitterHandle}
         />
+        <link
+          rel="image_src"
+          href={`${import.meta.env.VITE_APP_URL}/icon-192x192.png`}
+        />
       </Helmet>
       <ThemeProvider theme={Theme}>
         <GlobalStyles />
