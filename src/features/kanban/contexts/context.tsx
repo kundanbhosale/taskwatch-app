@@ -339,7 +339,9 @@ export const KanbanProvider = ({ children }: { children: ReactNode }) => {
         <Fragment>
           <EditModal editing={editing} setEditing={setEditing} />
           <KanbanNav view={view} sortType={sortType} />
-          <Wrapper ref={container}>{children}</Wrapper>
+          <Wrapper style={{ visibility: 'hidden' }} ref={container}>
+            {children}
+          </Wrapper>
         </Fragment>
       )}
     </KanbanContext.Provider>

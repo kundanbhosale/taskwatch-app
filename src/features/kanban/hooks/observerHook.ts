@@ -21,6 +21,14 @@ const useKanbanObserver = ({
   const container = useRef<HTMLDivElement>(null)
   const { height } = useViewport()
 
+  const visibility = useCallback(
+    (visible: boolean) => {
+      if (!container.current) return
+      container.current.style.visibility = visible ? 'visible' : 'hidden'
+    },
+    [container]
+  )
+
   useEffect(() => {
     if (!data || !rows || !grids) return
     const showColColor = rows.length <= 1
@@ -49,7 +57,7 @@ const useKanbanObserver = ({
   const handleResize = useCallback(
     (entries: ResizeObserverEntry[]) => {
       const resizedIds: string[] = []
-
+      visibility(false)
       entries.forEach((entry) => {
         const id = entry.target.id
 
@@ -96,7 +104,10 @@ const useKanbanObserver = ({
 
       colWrapper.style.width =
         gridWrapper.scrollWidth + (rows.length > 1 ? 40 : 0) + 'px'
+
+      visibility(true)
     },
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [container, grids, rows]
   )
@@ -121,10 +132,13 @@ const useKanbanObserver = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [container.current, height])
 
+  useEffect(() => {
+    // makeVisible()
+  }, [])
+
   useLayoutEffect(() => {
     // If the container ref or grids object is not defined, do nothing
     if (!container.current || !grids) return
-
     // Define arrays to store column and row IDs
     const colIds: any = []
     const rowIds: any = []
