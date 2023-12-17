@@ -48,7 +48,7 @@ const KanbanNav = ({
               // }
             >
               <Icon type="table" />
-              More Views comming soon!
+              More Views coming soon!
             </div>
           )}
         </div>
